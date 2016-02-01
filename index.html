@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html data-ng-app="toDoApp">
+<head>
+
+	<!-- Application Information -->
+	<meta charset="utf-8">
+	<title>Track To Do List</title>
+  <meta name="description" content="Monitor the list of items to do">
+
+  <!--Application CSS Style -->
+  <link rel="stylesheet" href="css/todoStyles.css">
+</head>
+<body>
+	<div class="todo-header">
+		<h1>Task Manager</h1>
+		<p><a href="#/employee">Employee View</a></p>
+		<p><a href="#/manager">Manager View</a></p>
+	</div>
+
+  <!-- injecting partials -->
+	<div ng-view></div>
+
+	<!-- Application Javascript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+	<script src="js/todoRouting.js"></script>
+	<script src="js/todoControllers.js"></script>
+	<script src="js/todoFilters.js"></script>
+</body>
+</html>
