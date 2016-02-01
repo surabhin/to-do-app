@@ -1,1 +1,8 @@
+/* Custom styles used in "To Do Application" */
+html{
+    font: 15px Arial, Helvetica, sans-serif;
+}
 
+li{
+	list-style-type: none;
+}
