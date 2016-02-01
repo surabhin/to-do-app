@@ -1,0 +1,45 @@
+<!-- Partial to display tasks based on templateUrl-->
+<div class="template-section">
+
+	<div class="todo-header">
+		<h2>{{viewName}}</h2>
+	</div>
+
+	<div class="view-tasks-section" data-ng-init="viewTasks = 'all'">
+
+		<div class="view-day-section">
+		    <select data-ng-model = "dayTasks" data-ng-change = "viewDayTasks(dayTasks)" >
+		      <option value = 'noSelection'>Please select Day</option>
+		      <option value = 'day1Tasks'>Day 1</option>
+		      <option value = 'day2Tasks'>Day 2</option>
+		    </select>
+
+			<p>Today's Tasks : </p>
+		 </div>
+
+		<!-- Buttons to view tasks based on their completion -->
+		<div class="filter-tasks">
+			<span>View: </span>
+			<input type="button" value = "All" class="view-tasks-btn" data-ng-click="viewTasks = 'all'" />
+			<input type="button" value = "Pending" class="view-tasks-btn" data-ng-click="viewTasks = 'pending'" />
+			<input type="button" value = "Completed" class="view-tasks-btn" data-ng-click="viewTasks = 'completed'" />
+		</div>
+
+		<!-- Tasks displayed based on the button clicked -->
+		<div class="tasks-section">
+		    <ul>
+		      <li data-ng-repeat="todo in toDoList | filterTasks : viewTasks">
+		        <input type="checkbox" data-ng-model="todo.taskStatus" />
+		        <span class="done-{{todo.taskStatus}}">{{todo.taskName}}</span>
+		      </li>
+		    </ul>
+		    <div data-ng-show="managerView">
+				<form data-ng-submit="addTask(newTask)">
+			      	<input type="text" data-ng-model="newTask" placeholder="Add New Task" />
+			     	<input type="submit" value="ADD" class="" />
+			    </form>
+		    </div>
+		</div>
+		
+	</div>
+</div>
